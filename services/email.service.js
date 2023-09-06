@@ -3,18 +3,23 @@ import { asyncStorageService } from './async-storage.service.js'
 import { storageService } from './storage.service.js'
 
 const STORAGE_KEY = 'emailDB'
-_createEmails()
-export const emailService={
-    query,
-    get,
-    remove,
-    loggedinUser
-}
-
+ var emails=_createEmails()
+console.log('start emails',emails)
 const loggedinUser = {
     email: 'user@appsus.com',
     fullname: 'Mahatma Appsus'
 }
+
+export const emailService = {
+    query,
+    get,
+    remove,
+    loggedinUser,
+    save,
+  
+}
+
+
 const criteria = {
     status: 'inbox/sent/trash/draft',
     txt: 'puki',
@@ -36,21 +41,33 @@ function get(mailId) {
 function remove(mailId) {
     return asyncStorageService.remove(STORAGE_KEY, mailId)
 }
+
+function save(email) {
+    if (email.id) {
+        return asyncStorageService.put(STORAGE_KEY,email)
+    }else{
+        return asyncStorageService.post(STORAGE_KEY,email)
+    }
+}
 function _createEmails() {
     console.log('hhhh')
-    let emails = storageService.loadFromStorage(STORAGE_KEY)
-    if (!emails || !emails.length) {
-        emails.push(_createEmail())
+    let emails = []
+    if(storageService.loadFromStorage(STORAGE_KEY)){
+        emails=storageService.loadFromStorage(STORAGE_KEY)
     }
+    console.log('emails', emails)
+    // if (!emails || !emails.length) {
+         emails.push(_createEmail())
+    // }
 
     storageService.saveToStorage(STORAGE_KEY, emails)
-    console.log('emails', emails)
+ 
     return emails
 }
 
 function _createEmail() {
     return {
-        id:  utilService.makeId(),
+        id: utilService.makeId(),
         subject: 'Miss you!',
         body: 'you love me?',
         isRead: false,
