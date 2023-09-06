@@ -8,8 +8,7 @@ export function AppHeader() {
     return <header className="app-header">
         <Link to="/">
         </Link>
-        <Logo />
-        <MailNavSide />
+     
         <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
