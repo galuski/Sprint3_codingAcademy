@@ -1,17 +1,11 @@
 // note service
-export const surveyService = {
-  getById,
-  notes
-}
-
-function getById() {
-  return Promise.resolve(survey)
-}
+import { utilService } from '../../../services/util.service.js'
+import { storageService } from '../../../services/storage.service.js'
 
 const notes = [
   {
     id: 'n101',
-    createdAt: 1112222,
+    createdAt: '10.5.2023',
     type: 'NoteTxt',
     isPinned: true,
     style: {
@@ -23,11 +17,12 @@ const notes = [
   },
   {
     id: 'n102',
+    createdAt: '1.4.2023',
     type: 'NoteImg',
     isPinned: false,
     info: {
       url: 'http://some-img/me',
-      title: 'Bobi and Me'
+      title: 'I am not a lier'
     },
     style: {
       backgroundColor: '#00d'
@@ -35,6 +30,7 @@ const notes = [
   },
   {
     id: 'n103',
+    createdAt: '7.3.2023',
     type: 'NoteTodos',
     isPinned: false,
     info: {
@@ -46,3 +42,13 @@ const notes = [
     }
   }
 ]
+
+export const  noteService = {
+  // getNoteById,
+  notes
+}
+
+// function getNoteById(notes, id) {
+//   return notes.find((note) => note.id === id)
+// }
+
