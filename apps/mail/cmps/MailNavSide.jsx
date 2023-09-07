@@ -6,9 +6,9 @@ export function MailNavSide() {
     }
     return (
         <section className={`navSide ${isOpen ? 'open' : ''}`}>
-        {/* <button className="hamburger" onClick={toggleMenu}>
+        <button className="hamburger" onClick={toggleMenu}>
             ☰
-        </button> */}
+        </button>
         <button>Inbox</button>
         <button>Starred</button>
         <button>Snoozed</button>
