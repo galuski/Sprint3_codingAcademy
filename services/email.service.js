@@ -74,6 +74,7 @@ function _createEmail() {
         sentAt: 1551133930594,
         remvedAt: null,
         from: 'momo@momo.com',
-        to: 'user@appsus.com'
+        to: 'user@appsus.com',
+        fromUser:'Omer Hen'
     }
 }
