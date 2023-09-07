@@ -31,10 +31,8 @@ export function MailIndex() {
     if (!emails) return <div>Loading...</div>
     return (
         <section className="mailIndex">
-<<<<<<< HEAD
            <MailHeader/>
             
-=======
             <Logo />
             <MailNavSide />
             {!selectedEmailId &&
@@ -43,18 +41,14 @@ export function MailIndex() {
                 </React.Fragment>
             }
             {selectedEmailId && <MailDetails onBack={() => onSelectEmailId(null)} emailId={selectedEmailId} />}
->>>>>>> cb9e8299c1f187530b9509f9a8b6f200de47e218
         </section>
 
     )
 
-<<<<<<< HEAD
-=======
 
 
 
 
 
 
->>>>>>> cb9e8299c1f187530b9509f9a8b6f200de47e218
 }
